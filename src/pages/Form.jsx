@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../styles/form.css';
 
 export default function Form({ onAddItem }) {
   const [guitModel, setGuitModel] = useState('');
@@ -70,22 +71,24 @@ export default function Form({ onAddItem }) {
   };
 
   return (
-    <div>
-      <h1>Registration Form</h1>
+    <div className="formcontainer">
+      <h1 className="formtitle">Registration Form</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Item Name (Guitar Model): </label>
+        <div className="formgroup">
+          <label className="formlabel">Item Name (Guitar Model): </label>
           <input
             type="text"
+            className="forminput"
             value={guitModel}
             onChange={(e) => setGuitModel(e.target.value)}
           />
-          {errors.guitModel && <span>{errors.guitModel}</span>}
+          {errors.guitModel && <span className="errortext">{errors.guitModel}</span>}
         </div>
 
-        <div>
-          <label>Body Type: </label>
+        <div className="formgroup">
+          <label className="formlabel">Body Type: </label>
           <select
+            className="formselect"
             value={bodyType}
             onChange={(e) => setBodyType(e.target.value)}
           >
@@ -94,112 +97,123 @@ export default function Form({ onAddItem }) {
             <option value="Bass">Bass</option>
             <option value="Classical">Classical</option>
           </select>
-          {errors.bodyType && <span>{errors.bodyType}</span>}
+          {errors.bodyType && <span className="errortext">{errors.bodyType}</span>}
         </div>
 
-        <div>
-          <label>Brand: </label>
+        <div className="formgroup">
+          <label className="formlabel">Brand: </label>
           <input
             type="text"
+            className="forminput"
             value={brand}
             onChange={(e) => setBrand(e.target.value)}
           />
-          {errors.brand && <span>{errors.brand}</span>}
+          {errors.brand && <span className="errortext">{errors.brand}</span>}
         </div>
 
-        <div>
-          <label>Stock (1-100): </label>
+        <div className="formgroup">
+          <label className="formlabel">Stock (1-100): </label>
           <input
             type="number"
+            className="forminput"
             value={stock}
             onChange={(e) => setStock(e.target.value)}
           />
-          {errors.stock && <span>{errors.stock}</span>}
+          {errors.stock && <span className="errortext">{errors.stock}</span>}
         </div>
 
-        <div>
-          <label>Label / Company Name: </label>
-          <label>
-            <input
-              type="radio"
-              name="compName"
-              value="Ibanez"
-              checked={compName === 'Ibanez'}
-              onChange={(e) => setCompName(e.target.value)}
-            />
-            Ibanez
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="compName"
-              value="Yamaha"
-              checked={compName === 'Yamaha'}
-              onChange={(e) => setCompName(e.target.value)}
-            />
-            Yamaha
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="compName"
-              value="Fender"
-              checked={compName === 'Fender'}
-              onChange={(e) => setCompName(e.target.value)}
-            />
-            Fender
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="compName"
-              value="Gibson"
-              checked={compName === 'Gibson'}
-              onChange={(e) => setCompName(e.target.value)}
-            />
-            Gibson
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="compName"
-              value="Gretsh"
-              checked={compName === 'Gretsh'}
-              onChange={(e) => setCompName(e.target.value)}
-            />
-            Gretsh
-          </label>
-          {errors.compName && <span>{errors.compName}</span>}
+        <div className="formgroup">
+          <label className="formlabel">Label / Company Name: </label>
+          <div className="radiogroup">
+            <label className="radiolabel">
+              <input
+                type="radio"
+                className="radioinput"
+                name="compName"
+                value="Ibanez"
+                checked={compName === 'Ibanez'}
+                onChange={(e) => setCompName(e.target.value)}
+              />
+              Ibanez
+            </label>
+            <label className="radiolabel">
+              <input
+                type="radio"
+                className="radioinput"
+                name="compName"
+                value="Yamaha"
+                checked={compName === 'Yamaha'}
+                onChange={(e) => setCompName(e.target.value)}
+              />
+              Yamaha
+            </label>
+            <label className="radiolabel">
+              <input
+                type="radio"
+                className="radioinput"
+                name="compName"
+                value="Fender"
+                checked={compName === 'Fender'}
+                onChange={(e) => setCompName(e.target.value)}
+              />
+              Fender
+            </label>
+            <label className="radiolabel">
+              <input
+                type="radio"
+                className="radioinput"
+                name="compName"
+                value="Gibson"
+                checked={compName === 'Gibson'}
+                onChange={(e) => setCompName(e.target.value)}
+              />
+              Gibson
+            </label>
+            <label className="radiolabel">
+              <input
+                type="radio"
+                className="radioinput"
+                name="compName"
+                value="Gretsh"
+                checked={compName === 'Gretsh'}
+                onChange={(e) => setCompName(e.target.value)}
+              />
+              Gretsh
+            </label>
+          </div>
+          {errors.compName && <span className="errortext">{errors.compName}</span>}
         </div>
 
-        <div>
-          <label>User Role: </label>
-          <label>
-            <input
-              type="radio"
-              name="userRole"
-              value="Consumer"
-              checked={userRole === 'Consumer'}
-              onChange={(e) => setUserRole(e.target.value)}
-            />
-            Consumer
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="userRole"
-              value="Merchant"
-              checked={userRole === 'Merchant'}
-              onChange={(e) => setUserRole(e.target.value)}
-            />
-            Merchant
-          </label>
-          {errors.userRole && <span>{errors.userRole}</span>}
+        <div className="formgroup">
+          <label className="formlabel">User Role: </label>
+          <div className="radiogroup">
+            <label className="radiolabel">
+              <input
+                type="radio"
+                className="radioinput"
+                name="userRole"
+                value="Consumer"
+                checked={userRole === 'Consumer'}
+                onChange={(e) => setUserRole(e.target.value)}
+              />
+              Consumer
+            </label>
+            <label className="radiolabel">
+              <input
+                type="radio"
+                className="radioinput"
+                name="userRole"
+                value="Merchant"
+                checked={userRole === 'Merchant'}
+                onChange={(e) => setUserRole(e.target.value)}
+              />
+              Merchant
+            </label>
+          </div>
+          {errors.userRole && <span className="errortext">{errors.userRole}</span>}
         </div>
 
-        <div>
-          <button type="submit">Submit</button>
-        </div>
+        <button type="submit" className="submitbtn">Submit</button>
       </form>
     </div>
   );

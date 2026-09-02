@@ -1,0 +1,192 @@
+.tablecontainer {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: linear-gradient(135deg, #064e3b 0%, #022c22 60%, #011c15 100%);
+  border: 1px solid #475569;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+  color: #e2e8f0;
+}
+
+.tabletitle {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #e2e8f0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.navbtn {
+  padding: 10px 20px;
+  border: 1px solid #64748b;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.navbtn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+}
+
+.filtergroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filterlabel {
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.filterselect {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #475569;
+  background-color: #0f172a;
+  color: #f8fafc;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.styledtable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  background: #0f172a;
+  border: 1px solid #475569;
+}
+
+.styledtable th {
+  background-color: #1e293b;
+  color: #6ee7b7;
+  padding: 14px;
+  text-align: left;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #475569;
+  border-right: 1px solid #334155;
+}
+
+.styledtable th:last-child {
+  border-right: none;
+}
+
+.styledtable td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #334155;
+  border-right: 1px solid #334155;
+  color: #e2e8f0;
+  font-size: 0.95rem;
+}
+
+.styledtable td:last-child {
+  border-right: none;
+}
+
+.tablerow {
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.tablerow:hover {
+  background-color: #1e293b;
+}
+
+.paginationbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+.pagebtn {
+  padding: 8px 16px;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.pagebtn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+}
+
+.pagebtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pageinfo {
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.detailcard {
+  margin-top: 2rem;
+  background: linear-gradient(135deg, #064e3b 0%, #022c22 100%);
+  border: 1px solid #475569;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.detailcard h2 {
+  color: #6ee7b7;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.detailbox {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 1.2rem;
+  text-align: left;
+  max-width: 420px;
+  margin: 0 auto;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.detailitem {
+  margin: 8px 0;
+  font-size: 0.95rem;
+  color: #e2e8f0;
+}
+
+.rolebadge {
+  display: inline-block;
+  background: #065f46;
+  color: #6ee7b7;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  border: 1px solid #334155;
+}

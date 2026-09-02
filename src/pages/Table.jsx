@@ -4,6 +4,7 @@ import {
   getCoreRowModel,
   getPaginationRowModel,
 } from '@tanstack/react-table';
+import '../styles/table.css';
 
 export default function Table({ items, onCreateAnother }) {
   const [filterOption, setFilterOption] = useState('All');
@@ -55,52 +56,53 @@ export default function Table({ items, onCreateAnother }) {
     },
   });
 
-  let detailContent = <p>Click a row in the table to view details.</p>;
+  let detailContent = <p className="detailitem">Click a row in the table to view details.</p>;
   if (activeItem) {
     detailContent = (
-      <div>
-        <p><strong>Item Name:</strong> {activeItem.guitModel}</p>
-        <p><strong>Body Type:</strong> {activeItem.bodyType}</p>
-        <p><strong>Brand:</strong> {activeItem.brand}</p>
-        <p><strong>Stock:</strong> {activeItem.stock}</p>
-        <p><strong>Company Name:</strong> {activeItem.compName}</p>
-        <p>
-          <strong>User Role Badge:</strong> <span>[{activeItem.userRole}]</span>
+      <div className="detailbox">
+        <p className="detailitem"><strong>Item Name:</strong> {activeItem.guitModel}</p>
+        <p className="detailitem"><strong>Body Type:</strong> {activeItem.bodyType}</p>
+        <p className="detailitem"><strong>Brand:</strong> {activeItem.brand}</p>
+        <p className="detailitem"><strong>Stock:</strong> {activeItem.stock}</p>
+        <p className="detailitem"><strong>Company Name:</strong> {activeItem.compName}</p>
+        <p className="detailitem">
+          <strong>User Role:</strong> <span className="rolebadge">{activeItem.userRole}</span>
         </p>
       </div>
     );
   }
 
   return (
-    <div>
-      <h1>Registry Table View</h1>
+    <div className="tablecontainer">
+      <h1 className="tabletitle">Registry Table View</h1>
 
-      <div>
-        <button onClick={onCreateAnother}>Create Another Order</button>
+      <div className="topbar">
+        <button onClick={onCreateAnother} className="navbtn">Create Another Order</button>
+
+        <div className="filtergroup">
+          <label className="filterlabel">Filter By: </label>
+          <select
+            className="filterselect"
+            value={filterOption}
+            onChange={(e) => setFilterOption(e.target.value)}
+          >
+            <option value="All">All</option>
+            <option value="Consumer">Consumer</option>
+            <option value="Merchant">Merchant</option>
+            <option value="Electric">Electric</option>
+            <option value="Acoustic">Acoustic</option>
+            <option value="Bass">Bass</option>
+            <option value="Classical">Classical</option>
+            <option value="Ibanez">Ibanez</option>
+            <option value="Yamaha">Yamaha</option>
+            <option value="Fender">Fender</option>
+            <option value="Gibson">Gibson</option>
+            <option value="Gretsh">Gretsh</option>
+          </select>
+        </div>
       </div>
 
-      <div>
-        <label>Filter By: </label>
-        <select
-          value={filterOption}
-          onChange={(e) => setFilterOption(e.target.value)}
-        >
-          <option value="All">All</option>
-          <option value="Consumer">Consumer</option>
-          <option value="Merchant">Merchant</option>
-          <option value="Electric">Electric</option>
-          <option value="Acoustic">Acoustic</option>
-          <option value="Bass">Bass</option>
-          <option value="Classical">Classical</option>
-          <option value="Ibanez">Ibanez</option>
-          <option value="Yamaha">Yamaha</option>
-          <option value="Fender">Fender</option>
-          <option value="Gibson">Gibson</option>
-          <option value="Gretsh">Gretsh</option>
-        </select>
-      </div>
-
-      <table border="1" cellPadding="8" style={{ marginTop: '1rem', width: '100%' }}>
+      <table className="styledtable">
         <thead>
           <tr>
             <th>Item Name</th>
@@ -117,8 +119,8 @@ export default function Table({ items, onCreateAnother }) {
             return (
               <tr
                 key={row.id}
+                className="tablerow"
                 onClick={() => handleRowClick(item)}
-                style={{ cursor: 'pointer' }}
               >
                 <td>{item.guitModel}</td>
                 <td>{item.bodyType}</td>
@@ -132,18 +134,20 @@ export default function Table({ items, onCreateAnother }) {
         </tbody>
       </table>
 
-      <div style={{ marginTop: '1rem' }}>
+      <div className="paginationbar">
         <button
+          className="pagebtn"
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
         >
           Previous
         </button>
-        <span style={{ margin: '0 1rem' }}>
+        <span className="pageinfo">
           Page {table.getState().pagination.pageIndex + 1} of{' '}
           {table.getPageCount() || 1}
         </span>
         <button
+          className="pagebtn"
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
         >
@@ -151,7 +155,7 @@ export default function Table({ items, onCreateAnother }) {
         </button>
       </div>
 
-      <div style={{ marginTop: '2rem' }}>
+      <div className="detailcard">
         <h2>Active Item Profile Detail Card</h2>
         {detailContent}
       </div>
